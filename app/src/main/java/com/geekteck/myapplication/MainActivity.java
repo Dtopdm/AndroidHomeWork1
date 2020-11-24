@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText userName;
     private EditText userPassword;
+    private EditText tvWelcome;
+    private ImageView icon;
     private Button userLogin;
-    private TextView attemptsInfo;
+    private TextView eAttemptsInfo;
     private final String Username = "Admin";
     private final String Password = "Dtop";
 
@@ -30,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
 
         userPassword = findViewById(R.id.etPassword);
         userLogin = findViewById(R.id.btnLogin);
-        attemptsInfo = findViewById(R.id.tvAttemptsInfo);
+        eAttemptsInfo = findViewById(R.id.tvAttemptsInfo);
+        userName = findViewById(R.id.etName);
+        tvWelcome = findViewById(R.id.tvWelcome);
+        icon = findViewById(R.id.icon);
 
         userLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
 
                         Toast.makeText(MainActivity.this, "Incorrect", Toast.LENGTH_SHORT).show();
 
-                        attemptsInfo.setText("No. of attempts remaining: " + counter);
+                        eAttemptsInfo.setText("No. of attempts remaining: " + counter);
 
                         if (counter == 0){
                             userLogin.setEnabled(false);
